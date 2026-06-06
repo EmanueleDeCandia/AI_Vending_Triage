@@ -1,0 +1,47 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isValidTriageSession(data) {
+      return data.id is string && data.id.size() <= 100
+        && data.userEmail is string && data.userEmail.size() <= 100
+        && data.state is string && data.state.size() <= 50
+        && data.symptom is string && data.symptom.size() <= 50;
+    }
+
+    match /test/{document=**} {
+      allow read: if true;
+    }
+
+    match /triage_sessions/{sessionId} {
+      allow get: if isValidId(sessionId) && (
+        (request.auth != null && resource.data.userEmail == request.auth.token.email) ||
+        (request.auth == null)
+      );
+
+      allow list: if (
+        (request.auth != null && resource.data.userEmail == request.auth.token.email) ||
+        (request.auth == null)
+      );
+
+      allow create: if isValidId(sessionId) && isValidTriageSession(request.resource.data) && (
+        (request.auth != null && request.resource.data.userEmail == request.auth.token.email) ||
+        (request.auth == null)
+      );
+
+      allow update: if isValidId(sessionId) && isValidTriageSession(request.resource.data) && (
+        (request.auth != null && resource.data.userEmail == request.auth.token.email && request.resource.data.userEmail == request.auth.token.email) ||
+        (request.auth == null)
+      );
+
+      allow delete: if false;
+    }
+  }
+}

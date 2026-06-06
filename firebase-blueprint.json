@@ -1,0 +1,56 @@
+{
+  "entities": {
+    "TriageSession": {
+      "title": "TriageSession",
+      "description": "Sessione di triage legata a un determinato distributore automatico, conservando lo stato della conversazione e l'esito finale.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "ID unico della sessione."
+        },
+        "userEmail": {
+          "type": "string",
+          "description": "Email dell'utente autenticato."
+        },
+        "deviceCode": {
+          "type": "string",
+          "description": "Codice identificativo della vending machine."
+        },
+        "symptom": {
+          "type": "string",
+          "description": "Sintomo primario identificato dall'NLU (macchina_spenta, display_vuoto_acqua, pieno_fondi, blocco_hardware, sconosciuto)."
+        },
+        "state": {
+          "type": "string",
+          "description": "Stato attuale nell'albero decisionale."
+        },
+        "history": {
+          "type": "array",
+          "description": "Conversazione dettagliata tra operatore e AI."
+        },
+        "triageResult": {
+          "type": "object",
+          "description": "Esito finale del triage, routing e payload d'escalation."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data di creazione."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data di ultimo aggiornamento."
+        }
+      },
+      "required": ["id", "userEmail", "state", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/triage_sessions/{sessionId}": {
+      "schema": "TriageSession",
+      "description": "Collezione delle sessioni di triage in tempo reale."
+    }
+  }
+}

@@ -1,0 +1,9 @@
+sintomo,condizione,routing_reparto,descrizione_azione
+macchina_spenta,presa_staccata,CLIENTE,L'utente ha riattaccato la spina e alimentato il distributore.
+macchina_spenta,presa_attaccata,INTERVENTO GUASTI,Presa inserita ma assenza di corrente. Assistenza tecnica qualificata.
+display_vuoto_acqua,pompa_sbloccata,CLIENTE,Il reset della pompa ha ripristinato il flusso d'acqua.
+display_vuoto_acqua,persiste_tanica,OPERATORE RIFORNIMENTO,Macchina con tanica segnala vuoto acqua. Rifornimento o sblocco galleggiante.
+display_vuoto_acqua,persiste_rete,INTERVENTO GUASTI,Blocco idrico persistente su rete principale. Sostituzione elettrovalvola idrica.
+pieno_fondi,vaschetta_piena,OPERATORE RIFORNIMENTO,Svuotamento cassetti e pulizia sensori di presenza.
+pieno_fondi,vaschetta_vuota_errore,INTERVENTO GUASTI,Vaschetta vuota ma blocco attivo. Errore microinterruttore o contatto ossidato.
+blocco_hardware,nessuna_autodiagnosi,INTERVENTO GUASTI,Blocco hardware critico rilevato (Errore RAM/Scheda/Caldaia). Assistenza tecnica.

@@ -1,0 +1,6 @@
+{
+  "name": "AI Vending Triage",
+  "description": "Applicazione di triage automatizzato per la qualificazione e instradamento dei ticket di vending machine.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

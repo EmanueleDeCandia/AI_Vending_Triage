@@ -1,0 +1,29 @@
+=== REGOLAMENTO FLUSSO DOMANDE E RISPOSTE AI VENDING TRIAGE ===
+
+1. CATEGORIE SINTOMI PRINCIPALI
+- macchina_spenta: La macchina non dà segni di vita, display spento, nessun led.
+- display_vuoto_acqua: Il display segnala "Vuoto acqua" o "Guasto acqua".
+- pieno_fondi: Il display segnala "Pieno fondi" o vaschetta dei fondi di caffè bloccante.
+- blocco_hardware: Errore RAM, Errore Scheda, Errore Caldaia. Macchina ferma all'accensione.
+
+2. FLUSSO ALBERO DECISIONALE
+
+A. CASO macchina_spenta:
+   - Domanda 1: "La presa di corrente è stabilmente inserita nella presa a muro? (Sì/No)"
+     * Se NO -> Azione: Suggerire di inserire la spina. Routing finale: CLIENTE.
+     * Se SÌ -> Azione: Mancata alimentazione elettrica interna. Routing finale: INTERVENTO GUASTI.
+
+B. CASO display_vuoto_acqua:
+   - Domanda 1: "Hai provato a effettuare un riavvio di sblocco della pompa (spegnendo la macchina, scollegando la spina per 10 secondi e riattaccandola)? Il display mostra ancora l'errore? (Sì/No)"
+     * Se No -> Azione: Il problema è sbloccato. Routing finale: CLIENTE.
+     * Se SÌ -> Domanda 2: "La macchina utilizza una tanica di ricarica interna oppure è collegata direttamente alla rete idrica? (Tanica/Rete)"
+       - Se TANICA -> Azione: Necessario controllo galleggiante o rifornimento acqua. Routing finale: OPERATORE RIFORNIMENTO.
+       - Se RETE -> Azione: Malfunzionamento dell'elettrovalvola o filtro intasato. Routing finale: INTERVENTO GUASTI.
+
+C. CASO pieno_fondi:
+   - Domanda 1: "La vaschetta raccogli-fondi è visibilmente piena o noti fuoriuscita di liquidi? (Sì/No)"
+     * Se SÌ -> Azione: Svuotare la vaschetta e pulire i contatti. Routing finale: OPERATORE RIFORNIMENTO.
+     * Se NO -> Azione: Microinterruttore della vaschetta danneggiato o disallineato. Routing finale: INTERVENTO GUASTI.
+
+D. CASO blocco_hardware (RAM/Scheda/Caldaia):
+   - Nessuna diagnosi utente possibile. Routing finale immediato: INTERVENTO GUASTI.
