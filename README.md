@@ -645,8 +645,15 @@ Le contribuzioni sono benvenute! Per favore:
 ---
 
 ### Quick Links
-- 🌐 [Website](https://www.your-domain.com)
-- 📖 [Documentazione Completa](./docs)
+- 🌐 [Website](https://accelerator.vzy.io/)
+- 📖 [Documentazione Completa - in progress](./docs)
 - 🐛 [Report Bug](../../issues/new?labels=bug)
 - 💡 [Suggerisci Feature](../../issues/new?labels=enhancement)
-- 💬 [Discussioni](../../discussions)
+- 💬 [Discussioni - in progress](../../discussions)
+
+---
+
+<div align="center">
+  <p><strong>Bringing performing arts and communities together through technology 🎭✨</strong></p>
+  <p>Made with ❤️ by <a href="https://github.com/EmanueleDeCandia">EmanueleDeCandia</a></p>
+</div>
