@@ -654,6 +654,5 @@ Le contribuzioni sono benvenute! Per favore:
 ---
 
 <div align="center">
-  <p><strong>Bringing performing arts and communities together through technology 🎭✨</strong></p>
   <p>Made with ❤️ by <a href="https://github.com/EmanueleDeCandia">EmanueleDeCandia</a></p>
 </div>
